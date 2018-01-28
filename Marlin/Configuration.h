@@ -142,11 +142,22 @@
 /**
  * TEVO Tarantula Custom PID Settings - Stock Hotend
  */
-#define  hot_Kp 9.84
-#define  hot_Ki 0.50
-#define  hot_Kd 48.17
+#define  hot_Kp 17.12 // 9.84
+#define  hot_Ki 1.02  // 0.50
+#define  hot_Kd 71.88 // 48.17
 // FIND YOUR OWN: "M303 E0 C8 S200" to run autotune on the hotend at 200 degreesC for 8 cycles.
 // More info here: http://reprap.org/wiki/PID_Tuning
+/* Measured by Autotune:  
+ *  see http://reprap.org/wiki/PID_Tuning
+ *  M303 E0 S200 C8
+ *  
+ *  Recv: #define  DEFAULT_Kp 17.12
+ *  Recv: #define  DEFAULT_Ki 1.02
+ *  Recv: #define  DEFAULT_Kd 71.88
+ *  
+ *  Saving: 
+ *  M301 P17.12 I1.02 D71.88 
+ */
 
 /**
  * TEVO Tarantula Custom PID Settings - Stock Heatbed
@@ -156,6 +167,13 @@
 #define  bed_Kd 1250.55
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 // More info here: http://reprap.org/wiki/PID_Tuning
+/* Measured by Autotune (w/ target temperature 70C)
+ *  M303 E-1 S70 C8
+ *  Recv: #define  DEFAULT_bedKp 285.83
+ *  Recv: #define  DEFAULT_bedKi 22.22
+ *  Recv: #define  DEFAULT_bedKd 919.04
+ *  M304 P285.83 I22.22 D919.04 
+ */
 
 /**
  * Fan Soft PWM. Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
