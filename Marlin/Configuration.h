@@ -169,10 +169,23 @@
 // More info here: http://reprap.org/wiki/PID_Tuning
 /* Measured by Autotune (w/ target temperature 70C)
  *  M303 E-1 S70 C8
+ *  
+ *  Measured with MAX_BED_POWER 255
  *  Recv: #define  DEFAULT_bedKp 285.83
  *  Recv: #define  DEFAULT_bedKi 22.22
  *  Recv: #define  DEFAULT_bedKd 919.04
  *  M304 P285.83 I22.22 D919.04 
+ *  
+ *  Measured with MAX_BED_POWER 180 
+ *  Recv: #define  DEFAULT_bedKp 233.02
+ *  Recv: #define  DEFAULT_bedKi 17.89
+ *  Recv: #define  DEFAULT_bedKd 758.81
+ *  M304 P233.02 I17.89 D758.81
+ *  
+ *  Measured again (starting at 50C, with applied M304 P233.02 I17.89 D758.81) 
+ *  Recv: #define  DEFAULT_bedKp 812.85
+ *  Recv: #define  DEFAULT_bedKi 74.60
+ *  Recv: #define  DEFAULT_bedKd 2214.11
  */
 
 /**
@@ -626,7 +639,7 @@
 // all forms of bed control obey this (PID, bang-bang, bang-bang with hysteresis)
 // setting this to anything other than 255 enables a form of PWM to the bed just like HEATER_BED_DUTY_CYCLE_DIVIDER did,
 // so you shouldn't use it unless you are OK with PWM on your bed.  (see the comment on enabling PIDTEMPBED)
-#define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
+#define MAX_BED_POWER 180 // limits duty cycle to bed; 255=full current
 
 #if ENABLED(PIDTEMPBED)
 
